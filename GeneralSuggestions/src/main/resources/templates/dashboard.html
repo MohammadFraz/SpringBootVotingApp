@@ -1,3 +1,16 @@
-dashboard
-
-<a 	href="/logout">Lougout</a>
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<title>
+		 dashboad
+	</title>
+</head>
+<body>
+	<h1>dashboard</h1>
+	
+	<form action="/logout" method="post">	
+	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+		<button type="submit">logout</button>
+	</form>
+</body>
+</html>
