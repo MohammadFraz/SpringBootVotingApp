@@ -18,12 +18,15 @@ import com.generalsuggestions.security.Authority;
 @Entity
 @Table(name = "users")
 public class User {
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String name;
 	private String username;
 	private String password;
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER, mappedBy="user")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 	private Set<Authority> authorities = new HashSet<>();
 
 	public Set<Authority> getAuthorities() {
@@ -66,6 +69,12 @@ public class User {
 		this.name = name;
 	}
 
-	private String name;
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
+				+ ", authorities=" + authorities + "]";
+	}
+
+	
 
 }
